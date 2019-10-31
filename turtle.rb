@@ -14,7 +14,7 @@ class Turtle
   def move
     case @direction
     when 'NORTH'
-      if (@y_position + 1) > 5
+      if (@y_position + 1) > 4
         p 'You cannot perform that move.'
       else
         @y_position += 1
@@ -26,7 +26,7 @@ class Turtle
         @y_position -= 1
       end
     when 'EAST'
-      if (@x_position + 1) > 5
+      if (@x_position + 1) > 4
         p 'You cannot perform that move.'
       else
         @x_position += 1
@@ -50,18 +50,5 @@ class Turtle
 
   def turn_right
     @direction = DIRECTIONS.rotate[DIRECTIONS.index(@direction)]
-  end
-
-  private
-
-  # attr_accessor :x_position, :y_position, :direction
-end
-
-class Board
-  attr_reader :height, :length
-
-  def initialize(height = 5, length = 5)
-    @height = height
-    @length = length
   end
 end
