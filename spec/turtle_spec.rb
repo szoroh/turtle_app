@@ -43,4 +43,42 @@ RSpec.describe Turtle do
       end
     end
   end
+
+  describe 'turtle initial position' do
+    context 'with too low x coordinate' do
+      it 'should set it to the lowest digit on the board' do
+        turtle = Turtle.new(-1, 2, 'WEST')
+
+        expect(turtle.x_position).to eq(0)
+        expect(turtle.y_position).to eq(2)
+      end
+    end
+
+    context 'with too high x coordinate' do
+      it 'should set it to the highest digit on board' do
+        turtle = Turtle.new(300, 2, 'EAST')
+
+        expect(turtle.x_position).to eq(4)
+        expect(turtle.y_position).to eq(2)
+      end
+    end
+
+    context 'with too low y coordinate' do
+      it 'should set it to the lowest digit on the board' do
+        turtle = Turtle.new(2, -4, 'NORTH')
+
+        expect(turtle.x_position).to eq(2)
+        expect(turtle.y_position).to eq(0)
+      end
+    end
+
+    context 'with too high y coordinate' do
+      it 'should set it to the highest digit on the board' do
+        turtle = Turtle.new(2, 300, 'EAST')
+
+        expect(turtle.x_position).to eq(2)
+        expect(turtle.y_position).to eq(4)
+      end
+    end
+  end
 end

@@ -6,8 +6,8 @@ class Turtle
   attr_reader :x_position, :y_position, :direction
 
   def initialize(x_position, y_position, direction)
-    @x_position = x_position
-    @y_position = y_position
+    @x_position = x_position.clamp(0,4)
+    @y_position = y_position.clamp(0,4)
     @direction = direction
   end
 
