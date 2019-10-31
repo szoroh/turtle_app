@@ -13,10 +13,10 @@ RSpec.describe Turtle do
 
     context 'after forward movement on board edge' do
       it 'cannot cross its end vertically oriented' do
-        turtle = Turtle.new(3,5, 'NORTH')
+        turtle = Turtle.new(3,4, 'NORTH')
 
         turtle.move
-        expect(turtle.y_position).to eq(5)
+        expect(turtle.y_position).to eq(4)
       end
 
       it 'cannot cross its end horizontally oriented' do
