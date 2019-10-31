@@ -19,7 +19,7 @@ One should clone the repository to their local disk.
 # Running the program
 
 ```
-ruby turtle.rb <textfilename>
+ruby command_file_reader.rb <textfilename>
 ```
 
 # Running specs
