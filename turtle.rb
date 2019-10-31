@@ -42,6 +42,14 @@ class Turtle
     "#{@x_position}, #{@y_position}, #{@direction}"
   end
 
+  def turn_left
+    @direction = DIRECTIONS.rotate(-1)[DIRECTIONS.index(@direction)]
+  end
+
+  def turn_right
+    @direction = DIRECTIONS.rotate[DIRECTIONS.index(@direction)]
+  end
+
   private
 
   attr_accessor :x_position, :y_position, :direction
