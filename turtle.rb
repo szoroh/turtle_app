@@ -39,7 +39,7 @@ class Turtle
   end
 
   def report
-    "#{@x_position}, #{@y_position}, #{@direction}"
+    puts "#{@x_position}, #{@y_position}, #{@direction}"
   end
 
   def turn_left
