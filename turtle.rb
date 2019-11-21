@@ -2,41 +2,37 @@ require 'pry'
 
 class Turtle
   DIRECTIONS = %w[NORTH EAST SOUTH WEST]
+  MIN_SIZE = 0
+  MAX_SIZE = 4
 
   attr_reader :x_position, :y_position, :direction
 
   def initialize(x_position, y_position, direction)
-    @x_position = x_position.clamp(0,4)
-    @y_position = y_position.clamp(0,4)
+    @x_position = x_position.clamp(MIN_SIZE, MAX_SIZE)
+    @y_position = y_position.clamp(MIN_SIZE, MAX_SIZE)
     @direction = direction
   end
 
   def move
+    new_x = @x_position
+    new_y = @y_position
+
     case @direction
     when 'NORTH'
-      if (@y_position + 1) > 4
-        p 'You cannot perform that move.'
-      else
-        @y_position += 1
-      end
+        new_y += 1
     when 'SOUTH'
-      if (@y_position - 1) < 0
-        p 'You cannot perform that move.'
-      else
-        @y_position -= 1
-      end
+        new_y -= 1
     when 'EAST'
-      if (@x_position + 1) > 4
-        p 'You cannot perform that move.'
-      else
-        @x_position += 1
-      end
+        new_x += 1
     when 'WEST'
-      if (@x_position - 1) < 0
-        p 'You cannot perform that move.'
-      else
-        @x_position -= 1
-      end
+        new_x -= 1
+    end
+
+    if new_x >= MIN_SIZE && new_x <= MAX_SIZE && new_y >= MIN_SIZE && new_y <= MAX_SIZE
+      @x_position = new_x
+      @y_position = new_y
+    else
+      p 'You cannot perform that move.'
     end
   end
 
