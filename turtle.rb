@@ -2,6 +2,12 @@ require 'pry'
 
 class Turtle
   DIRECTIONS = %w[NORTH EAST SOUTH WEST]
+  DIRECTIONS_OFFSET = {
+    'NORTH' => [0,1],
+    'SOUTH' => [0,-1],
+    'WEST' => [-1,0],
+    'EAST' => [1,0]
+  }
   MIN_SIZE = 0
   MAX_SIZE = 4
 
@@ -14,19 +20,9 @@ class Turtle
   end
 
   def move
-    new_x = @x_position
-    new_y = @y_position
-
-    case @direction
-    when 'NORTH'
-        new_y += 1
-    when 'SOUTH'
-        new_y -= 1
-    when 'EAST'
-        new_x += 1
-    when 'WEST'
-        new_x -= 1
-    end
+    offset = DIRECTIONS_OFFSET[direction]
+    new_x = @x_position + offset[0]
+    new_y = @y_position + offset[1]
 
     if new_x >= MIN_SIZE && new_x <= MAX_SIZE && new_y >= MIN_SIZE && new_y <= MAX_SIZE
       @x_position = new_x
